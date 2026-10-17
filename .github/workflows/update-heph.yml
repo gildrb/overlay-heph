@@ -31,9 +31,9 @@ jobs:
           HEPH_VERSION: ${{ github.event.inputs.version || '' }}
         run: |
           if [ -n "$HEPH_VERSION" ]; then
-            uv run python update "$HEPH_VERSION"
+            uv run --no-project python update "$HEPH_VERSION"
           else
-            uv run python update
+            uv run --no-project python update
           fi
 
           if git diff --quiet; then
